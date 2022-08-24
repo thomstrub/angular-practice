@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 
 @Component({
 
@@ -20,11 +20,38 @@ import { Component, OnInit } from '@angular/core';
 // `,
   styleUrls: ['./servers.component.css']
 })
-export class ServersComponent implements OnInit {
+export class ServersComponent  implements OnInit{
+  allowNewServer = false;
 
-  constructor() { }
+  serverCreationStatus = "No Server was created.";
+  serverName="Testing for Testing";
+  userName="";
+  serverCreated = false;
+  servers = ['Testserver', 'Testserver 1'];
+  
+  constructor(){
+    setTimeout(() => {
+      this.allowNewServer = true;
+    }, 2000)
+  }
 
   ngOnInit(): void {
+      
+  }
+
+  onCreateServer(){
+    // this.serverCreationStatus = "Server was created! Name is " + this.serverName;
+    this.serverCreated = !this.serverCreated;
+    this.servers.push(this.serverName);
+  }
+
+  onUpdateServerName(event: any){
+    this.serverName = event.target.value;
+    console.log(this.serverName);
+  }
+
+  onResetUsername(){
+    this.userName="";
   }
 
 }

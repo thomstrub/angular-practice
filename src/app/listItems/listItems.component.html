@@ -1,0 +1,26 @@
+<div class="col "></div>
+<div class="col">
+    <div class="row">
+        <button 
+        class="btn btn-primary"
+        (click)="onClick()"
+        >Display Details</button>
+        
+        <br/>
+    </div>
+    <div class="row">
+        <p [hidden]="pVisible">This is the secret</p>
+    </div>
+    <div class="row">
+        <ul>
+            <li 
+            *ngFor="let item of itemsList; let i = index"
+            [ngStyle]="{backgroundColor: item.color}"
+            [ngClass]="{five: i > 3}"
+            >{{item.display}}</li>
+        </ul>
+    </div>
+</div>
+<div class="col"></div>
+
+
